@@ -5,5 +5,5 @@
  * @returns {number}
  */
 function pow (m, n) {
-
+    return (n==1) ? m : m*pow (m, n-1);
 }
