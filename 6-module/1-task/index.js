@@ -4,11 +4,7 @@
  * Функция возвращает строкой, сколько времени осталоьс до события
  * @param {Date} when - дата события
  * @return {string} - строка с указанием времени до начала события
- *//*
-function getBeforeTime(when) {
-    let current = Date.now(); // обязательно получать текущую дату через эту функцию. Иначе тесты работать не будут
-}
-*/
+ */
 
 function getBeforeTime(when) {
     let current = Date.now();
@@ -40,4 +36,5 @@ function getBeforeTime(when) {
 getBeforeTime(new Date(2019, 5, 17)); // 1 г., 1 д., 11 ч.
 getBeforeTime(new Date(2018, 5, 15, 13));  // событие завершилось
 getBeforeTime(new Date(2018, 5, 16, 13)); // 1 д.
+
 
