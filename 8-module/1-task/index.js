@@ -21,6 +21,7 @@ function SortableTable(items) {
      * @property {Element} - обязательно свойство, которое ссылается на элемент <table>
      */
     this.el = document.createElement('table');
+
     this.items=items;
 
     this.createTable = function(items){
@@ -34,11 +35,13 @@ function SortableTable(items) {
 
     this.createTable(items);
 
+
     /**
      * Метод выполняет сортировку таблицы
      * @param {number} column - номер колонки, по которой нужно выполнить сортировку (отсчет начинается от 0)
      * @param {boolean} desc - признак того, что сортировка должна идти в обратном порядке
      */
+
     this.sort = function (column, desc = false) {
         let i=0;
         let targetColumn='name';
@@ -58,5 +61,6 @@ function SortableTable(items) {
         this.createTable(items);
         console.log(this.items);
     };
+
 }
 
