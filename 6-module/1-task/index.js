@@ -4,9 +4,10 @@
  * Функция возвращает строкой, сколько времени осталоьс до события
  * @param {Date} when - дата события
  * @return {string} - строка с указанием времени до начала события
+<<<<<<< HEAD
  */
-
 function getBeforeTime(when) {
+
     let current = Date.now();
     if (current>=when) return 'событие завершилось';
     let cur=new Date(current);
