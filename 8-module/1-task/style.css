@@ -1,0 +1,35 @@
+
+.resultTable {
+    border-spacing: 0;
+}
+
+.resultTable thead {
+    background-color: #ff6c6c;
+    color: white;
+}
+
+.resultTable td {
+    padding: 5px 37px 5px 10px;
+}
+
+.sortButton {
+    padding: 10px 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #ff6c6c;
+    border: 1px solid white;
+    color: white;
+}
+.sortButton:hover {
+    box-shadow: 0px 2px 2px 1px rgba(0, 0, 0, 0.42);
+}
+
+.sortButton {
+    padding: 10px 60px;
+    cursor: pointer;
+    border-radius: 6px;
+    background-color: #ff6c6c;
+    border: 1px solid #ff6c6c;
+    color: white;
+
+}
