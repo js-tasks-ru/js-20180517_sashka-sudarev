@@ -1,5 +1,11 @@
 (function () {
 
+    function bind(func, context) {
+        return function() {
+            return func.apply(context, arguments);
+        };
+    }
+
     class Tooltip {
 
         /**
@@ -37,12 +43,38 @@
          * @param {Element} root - элемент, внутри которого, нужно включить работу подсказок
          */
         attach(root) {
+            this.root=root;
+            function showTooltip(e){
+                let target=e.target;
+                if (!target.hasAttribute('data-tooltip')) return;
+                this.el.classList.add('tooltip_active');
+                this.el.innerText=target.dataset.tooltip;
+                let targetPos=target.getBoundingClientRect();
+                let tooltipPos=this.el.getBoundingClientRect();
+                let [x,y,tooltipHeight]=[0,0,tooltipPos.bottom-tooltipPos.top];
+                if (targetPos.bottom>document.documentElement.clientHeight-(tooltipHeight+this.indent)) y=targetPos.top-tooltipHeight-this.indent;
+                else y=targetPos.bottom+this.indent;
+                this.el.style.top=y+'px';
+            }
+
+            function hideTooltip(e){
+                let target=e.target ;
+                if (!target.hasAttribute('data-tooltip')) return;
+                this.el.classList.remove('tooltip_active');
+                this.el.innerText='';
+            }
+            this.showTooltip=bind(showTooltip,this);
+            this.hideTooltip=bind(hideTooltip,this);
+            this.root.addEventListener('mouseover', this.showTooltip);
+            this.root.addEventListener('mouseout', this.hideTooltip);
         }
 
         /**
          * Удаляет все обработчики событий
          */
-        detach() {
+        detach() {console.log(this.root);
+            this.root.removeEventListener("mouseover", this.showTooltip);
+            this.root.removeEventListener('mouseout', this.hideTooltip);
         }
     }
 
